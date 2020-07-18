@@ -232,7 +232,6 @@ static void motion_transition_defaults(obs_data_t *s)
 
 static obs_properties_t *motion_transition_properties(void *data)
 {
-	blog(LOG_ERROR, "Options motion transition ");
 	obs_properties_t *props = obs_properties_create();
 	obs_properties_add_float_slider(props, S_BEZIER_X, T_BEZIER_X, -0.5, 0.5,
 		0.01);
@@ -347,7 +346,6 @@ static void motion_enum_active_sources(void *data,
 
 static void *motion_transition_create(obs_data_t *settings, obs_source_t *context)
 {
-	blog(LOG_ERROR, "created motion transition ");
 	transition_data_t *tr = bzalloc(sizeof(*tr));
 	tr->context = context;
 	UNUSED_PARAMETER(settings);
@@ -389,7 +387,6 @@ struct obs_source_info motion_transition = {
 };
 
 bool obs_module_load(void) {
-	blog(LOG_ERROR, "Register motion transition ");
 	obs_register_source(&motion_transition);
 	return true;
 }
