@@ -224,6 +224,12 @@ static void motion_transition_stop(void *data)
 	tr->transitioning = false;
 }
 
+static void motion_transition_defaults(obs_data_t *s)
+{
+	obs_data_set_default_double(s, S_BEZIER_X, 0.0f);
+	obs_data_set_default_double(s, S_BEZIER_Y, 0.0f);
+}
+
 static obs_properties_t *motion_transition_properties(void *data)
 {
 	obs_properties_t *props = obs_properties_create();
@@ -364,7 +370,7 @@ OBS_DECLARE_MODULE()
 OBS_MODULE_USE_DEFAULT_LOCALE("motion-transition", "en-US")
 
 struct obs_source_info motion_transition = {
-	.id = "motion-transition",
+	.id = "motion_transition",
 	.type = OBS_SOURCE_TYPE_TRANSITION,
 	.get_name = motion_transition_get_name,
 	.create = motion_transition_create,
@@ -372,6 +378,7 @@ struct obs_source_info motion_transition = {
 	.update = motion_transition_update,
 	.video_render = motion_transition_video_render,
 	.audio_render = motion_transition_audio_render,
+	.get_defaults = motion_transition_defaults,
 	.get_properties = motion_transition_properties,
 	.enum_active_sources = motion_enum_active_sources,
 	.enum_all_sources = motion_enum_all_sources,

@@ -21,7 +21,6 @@
 #include <obs-module.h>
 #include <obs-hotkey.h>
 #include <obs-scene.h>
-#include <obs-frontend-api.h>
 #include <util/dstr.h>
 #include "../helper.h"
 
@@ -312,10 +311,11 @@ static void scene_change(enum obs_frontend_event event, void *data)
 	const char* cur_name;
 	const char* self_name;
 
-	if (event != OBS_FRONTEND_EVENT_SCENE_CHANGED)
-		return;
+	// REIMPLEMENT
+	// if (event != OBS_FRONTEND_EVENT_SCENE_CHANGED)
+	// 	return;
 
-	cur_scene = obs_frontend_get_current_scene();
+	// cur_scene = obs_frontend_get_current_scene();
 	self_scene = obs_filter_get_parent(filter->context);
 
 	if (cur_scene == self_scene) {
@@ -427,7 +427,8 @@ static bool register_trigger_event(void *data)
 		return false;
 
 	if (filter->motion_behavior == BEHAVIOR_SCENE_SWITCH) {
-		obs_frontend_add_event_callback(scene_change, data);
+		// REIMPLEMENT
+		// obs_frontend_add_event_callback(scene_change, data);
 		return true;
 	}
 
@@ -450,7 +451,8 @@ static void unregister_trigger_event(void *data)
 
 
 	if (filter->motion_behavior == BEHAVIOR_SCENE_SWITCH) {
-		obs_frontend_remove_event_callback(scene_change, data);
+		// REIMPLEMENT
+		// obs_frontend_remove_event_callback(scene_change, data);
 		return ;
 	}
 
@@ -834,7 +836,7 @@ OBS_DECLARE_MODULE()
 OBS_MODULE_USE_DEFAULT_LOCALE("motion-filter", "en-US")
 
 struct obs_source_info motion_filter = {
-	.id = "motion-filter",
+	.id = "motion_filter",
 	.type = OBS_SOURCE_TYPE_FILTER,
 	.output_flags = OBS_SOURCE_VIDEO,
 	.get_name = motion_filter_get_name,

@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 project(motion-transition)
 
-include(${CMAKE_SOURCE_DIR}/external/FindLibObs.cmake)
-find_package(LibObs REQUIRED)
 set(motion-transition_SOURCES
 	../helper.c
 	motion-transition.c
@@ -34,3 +32,5 @@ if(UNIX AND NOT APPLE)
 	install(DIRECTORY ${CMAKE_SOURCE_DIR}/data/motion-transition/
 		DESTINATION "${CMAKE_INSTALL_PREFIX}/share/obs/obs-plugins/motion-transition/")
 endif()
+
+install_obs_plugin(motion-transition)
