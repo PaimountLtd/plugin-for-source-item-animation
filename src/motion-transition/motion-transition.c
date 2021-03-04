@@ -348,7 +348,7 @@ static void *motion_transition_create(obs_data_t *settings, obs_source_t *contex
 {
 	transition_data_t *tr = bzalloc(sizeof(*tr));
 	tr->context = context;
-	UNUSED_PARAMETER(settings);
+	motion_transition_update(tr, settings);
 	return tr;
 }
 
