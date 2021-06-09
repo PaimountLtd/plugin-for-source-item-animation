@@ -21,7 +21,7 @@
 #include "helper.h"
 #include <obs-scene.h>
 #include <util/dstr.h>
-
+#include <obs-internal.h>
 
 obs_sceneitem_t *get_item(obs_source_t *context,
 	const char *name)
