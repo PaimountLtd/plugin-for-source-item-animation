@@ -203,7 +203,7 @@ void crop_linear(struct obs_sceneitem_crop a, struct obs_sceneitem_crop b,
 	struct obs_sceneitem_crop* result, float t)
 {
 	result->bottom = (int)((1.0f - t) * (float)a.bottom + t * (float)b.bottom);
-	result->left =(int) ((1.0f - t) * (float)a.left + t * (float)b.left);
+	result->left = (int)((1.0f - t) * (float)a.left + t * (float)b.left);
 	result->top = (int)((1.0f - t) * (float)a.top + t * (float)b.top);
 	result->right = (int)((1.0f - t) * (float)a.right + t * (float)b.right);
 }
