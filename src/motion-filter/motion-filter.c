@@ -723,7 +723,7 @@ static void cal_variation(motion_filter_data_t *filter)
 {
 	variation_data_t *var = &filter->variation;
 
-	float elapsed_time = fmin(filter->duration, var->elapsed_time);
+	float elapsed_time = fminf(filter->duration, var->elapsed_time);
 	float coeff;
 	int order;
 

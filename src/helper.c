@@ -202,8 +202,8 @@ void vec_bezier(struct vec2 a, struct vec2 b,  struct vec2 c ,
 void crop_linear(struct obs_sceneitem_crop a, struct obs_sceneitem_crop b,
 	struct obs_sceneitem_crop* result, float t)
 {
-	result->bottom = (1.0f - t) * a.bottom + t * b.bottom;
-	result->left = (1.0f - t) * a.left + t * b.left;
-	result->top = (1.0f - t) * a.top + t * b.top;
-	result->right = (1.0f - t) * a.right + t * b.right;
+	result->bottom = (int)((1.0f - t) * (float)a.bottom + t * (float)b.bottom);
+	result->left = (int)((1.0f - t) * (float)a.left + t * (float)b.left);
+	result->top = (int)((1.0f - t) * (float)a.top + t * (float)b.top);
+	result->right = (int)((1.0f - t) * (float)a.right + t * (float)b.right);
 }
