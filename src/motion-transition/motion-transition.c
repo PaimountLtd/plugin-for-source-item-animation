@@ -18,9 +18,9 @@
 */
 
 
-#include "obs-module.h"
 #include "../helper.h"
-#include <obs-scene.h>
+#include <pthread.h>
+#include "obs-scene.h"
 
 enum variation_type {
 	VARIATION_MOTION = 0,
