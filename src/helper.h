@@ -20,6 +20,7 @@
 
 #pragma once
 
+#include <obs.h>
 #include <obs-module.h>
 
 obs_sceneitem_t* get_item(obs_source_t *context,const char *name);

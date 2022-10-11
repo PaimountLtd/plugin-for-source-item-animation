@@ -19,7 +19,7 @@
 */
 
 #include "helper.h"
-#include <obs-scene.h>
+#include <obs.h>
 #include <util/dstr.h>
 #include <obs-internal.h>
 
