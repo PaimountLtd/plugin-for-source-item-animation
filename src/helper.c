@@ -21,7 +21,7 @@
 #include "helper.h"
 #include <obs.h>
 #include <util/dstr.h>
-#include <obs-internal.h>
+//#include <obs-internal.h>
 
 obs_sceneitem_t *get_item(obs_source_t *context,
 	const char *name)
@@ -100,7 +100,7 @@ bool is_program_scene(obs_source_t *scene)
 	if (!obs_scene_from_source(scene))
 		return false;
 
-	if (!scene->context.private)
+	if (!obs_obj_is_private(scene))
 		return false;
 
 	if (obs_source_get_name(scene))
