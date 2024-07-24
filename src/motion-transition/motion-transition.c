@@ -320,6 +320,16 @@ static bool motion_transition_audio_render(void *data, uint64_t *ts_out,
 		audio, mixers, channels, sample_rate, mix_a, mix_b);
 }
 
+static bool motion_transition_audio_render_do(
+	void *data, uint64_t *ts_out, struct audio_data_mixes_outputs *audio,
+	uint32_t mixers, size_t channels, size_t sample_rate)
+{
+	transition_data_t *tr = data;
+	return obs_transition_audio_render_do(tr->context, ts_out, audio,
+					      mixers, channels, sample_rate,
+					      mix_a, mix_b);
+}
+
 static void motion_enum_all_sources(void *data,
 	obs_source_enum_proc_t enum_callback, void *param)
 {
@@ -378,6 +388,7 @@ struct obs_source_info motion_transition = {
 	.update = motion_transition_update,
 	.video_render = motion_transition_video_render,
 	.audio_render = motion_transition_audio_render,
+	.audio_render_do = motion_transition_audio_render_do,
 	.get_defaults = motion_transition_defaults,
 	.get_properties = motion_transition_properties,
 	.enum_active_sources = motion_enum_active_sources,
